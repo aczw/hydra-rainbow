@@ -14,9 +14,13 @@ const hydra = new Hydra({
 
 window.addEventListener("resize", () => hydra.setResolution(window.innerWidth, window.innerHeight));
 
-osc(6, 1, 5)
-  .add(noise(0.7, 1), 1)
-  .rotate(() => time % 360)
-  .pixelate(30, [5, 10, 15, 20].fast(Math.PI))
-  .modulatePixelate(osc(4), 4, [1, 20, -10, 5, 100, -17, 69, -420].fast(2))
+osc([2, 8, 5].fast(1.5), [1, 2].fast(0.5), 5)
+  .add(noise(0.5, 1), 1)
+  .rotate(time)
+  .pixelate([50, 15, 30].fast(1), [5, 20, 10, 50, 15].fast(3))
+  .modulatePixelate(
+    osc(4),
+    [1, 4, 3, 5, 2].fast(0.7),
+    [1, 25, 10, 2, 3, 100, 4, 200, 5, 50].fast(2),
+  )
   .out();
