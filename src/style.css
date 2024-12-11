@@ -7,14 +7,17 @@
 *::before,
 *::after {
   box-sizing: border-box;
+  font-family: Hermit, monospace, sans-serif, serif;
 }
 
 * {
+  padding: 0;
   margin: 0;
+  color: inherit;
+  text-decoration: inherit;
 }
 
 body {
-  line-height: 1.5;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -24,14 +27,6 @@ video,
 canvas,
 svg {
   display: block;
-  max-width: 100%;
-}
-
-input,
-button,
-textarea,
-select {
-  font: inherit;
 }
 
 p,
@@ -57,20 +52,73 @@ h6 {
   text-wrap: balance;
 }
 
-main {
-  height: 100vh;
-  position: relative;
-}
-
-#c {
-  width: 100%;
-  height: 100%;
-}
-
 #content {
   position: absolute;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   inset: 0;
+}
+
+#list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  line-height: 1;
+  text-align: center;
+}
+
+.link {
+  font-size: 1.2rem;
+  text-underline-offset: 5px;
+
+  &:hover {
+    font-style: italic;
+    text-decoration: underline;
+    text-decoration-style: dotted;
+  }
+}
+
+.sep {
+  display: none;
+  cursor: default;
+}
+
+@media (min-width: 640px) {
+  #list {
+    flex-direction: row;
+  }
+
+  .sep {
+    display: block;
+  }
+}
+
+@font-face {
+  src: url("/_fonts/Hermit-Regular.woff2") format("woff2");
+  font-family: Hermit;
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  src: url("/_fonts/Hermit-RegularItalic.woff2") format("woff2");
+  font-family: Hermit;
+  font-style: italic;
+  font-weight: normal;
+}
+
+@font-face {
+  src: url("/_fonts/Hermit-Bold.woff2") format("woff2");
+  font-family: Hermit;
+  font-style: normal;
+  font-weight: bold;
+}
+
+@font-face {
+  src: url("/_fonts/Hermit-BoldItalic.woff2") format("woff2");
+  font-family: Hermit;
+  font-style: italic;
+  font-weight: bold;
 }
